@@ -1,0 +1,15 @@
+ip6tables -A INPUT -p tcp --src 2400:cb00::/32 --dport 443 -j ACCEPT
+ip6tables -A INPUT -p tcp --src 2405:8100::/32 --dport 443 -j ACCEPT
+ip6tables -A INPUT -p tcp --src 2405:b500::/32 --dport 443 -j ACCEPT
+ip6tables -A INPUT -p tcp --src 2606:4700::/32 --dport 443 -j ACCEPT
+ip6tables -A INPUT -p tcp --src 2803:f800::/32 --dport 443 -j ACCEPT
+ip6tables -A INPUT -p tcp --src 2c0f:f248::/32 --dport 443 -j ACCEPT
+ip6tables -A INPUT -p tcp --src 2a06:98c0::/29 --dport 443 -j ACCEPT
+
+ip6tables -A INPUT -p tcp --src 2400:cb00::/32 --dport 80 -j ACCEPT
+ip6tables -A INPUT -p tcp --src 2405:8100::/32 --dport 80 -j ACCEPT
+ip6tables -A INPUT -p tcp --src 2405:b500::/32 --dport 80 -j ACCEPT
+ip6tables -A INPUT -p tcp --src 2606:4700::/32 --dport 80 -j ACCEPT
+ip6tables -A INPUT -p tcp --src 2803:f800::/32 --dport 80 -j ACCEPT
+ip6tables -A INPUT -p tcp --src 2c0f:f248::/32 --dport 80 -j ACCEPT
+ip6tables -A INPUT -p tcp --src 2a06:98c0::/29 --dport 80 -j ACCEPT

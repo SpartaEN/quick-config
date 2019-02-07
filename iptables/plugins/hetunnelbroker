@@ -1,0 +1,3 @@
+# Replace the address with your own
+iptables -A INPUT -s 66.220.18.42/32 -p icmp -m comment --comment "HE.net tunnelbroker icmp echo" -j ACCEPT
+iptables -A INPUT -s 66.220.18.42/32 -p ipv6 -m comment --comment "HE.net tunnelbroker main protocol" -j ACCEPT

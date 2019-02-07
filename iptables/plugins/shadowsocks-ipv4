@@ -1,0 +1,18 @@
+# Setup limitations
+iptables  -t nat -A OUTPUT -p tcp -m owner --uid-owner ssuser -m tcp --dport 80 -j REDIRECT --to-ports 3128
+iptables -A OUTPUT -p tcp -m owner --uid-owner ssuser -m tcp --sport 1080 -j ACCEPT
+iptables -A OUTPUT -p tcp -m owner --uid-owner ssuser -m tcp --dport 80 -j ACCEPT
+iptables -A OUTPUT -p tcp -m owner --uid-owner ssuser -m tcp --dport 443 -j ACCEPT
+iptables -A OUTPUT -p tcp -m owner --uid-owner ssuser -m tcp --dport 53 -j ACCEPT
+iptables -A OUTPUT -p udp -m owner --uid-owner ssuser -m udp --dport 53 -j ACCEPT
+iptables -A OUTPUT -m owner --uid-owner ssuser -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+iptables -A OUTPUT -p tcp -m owner --uid-owner ssuser -j REJECT --reject-with tcp-reset
+
+# New port
+iptables -A INPUT -p tcp -m tcp --dport 8001 --tcp-flags FIN,SYN,RST,ACK SYN -m connlimit --connlimit-above 48 --connlimit-mask 32 --connlimit-saddr -j REJECT --reject-with tcp-reset
+iptables -A INPUT -p tcp -m tcp --dport 8001 -j ACCEPT
+iptables -A INPUT -p udp -m udp --dport 8001 -j ACCEPT
+
+# New port (Not restricted)
+iptables -A INPUT -p tcp -m tcp --dport 8002 -j ACCEPT
+iptables -A INPUT -p udp -m udp --dport 8002 -j ACCEPT

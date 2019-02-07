@@ -1,0 +1,13 @@
+Description='A basic static ethernet connection'
+Interface=eth0
+Connection=ethernet
+IP=static
+TimeoutDAD=10
+Address=('**IPv4 with mask**')
+Gateway='**IPv4 of GW**'
+IP6=static
+Address6=('**IPv6 with CDIR**')
+Gateway6='**IPv6 GW**'
+Route6='default via **IPv6 GW**'
+DNS=('8.8.8.8' '2001:4860:4860::8888')
+ExecUpPost='/usr/sbin/ip route add 169.254.0.0/16 dev eth0'

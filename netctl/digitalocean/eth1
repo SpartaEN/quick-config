@@ -1,0 +1,7 @@
+Description='Private Networking'
+Interface=eth1
+Connection=ethernet
+IP=static
+Address=('**IPv4 with mask**')
+IP6=no
+ExecUpPost='/usr/sbin/ip link set eth1 mtu 1450'

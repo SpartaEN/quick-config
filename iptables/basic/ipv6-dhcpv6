@@ -1,0 +1,1 @@
+ip6tables -A INPUT -m udp -p udp --dport 546 -d fe80::/64 -j ACCEPT
