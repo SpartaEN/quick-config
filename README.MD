@@ -12,3 +12,6 @@ A simple config used for my servers
  - php (Not completed yet)
  - iptables
  - netctl
+
+## LICENSE
+MIT
